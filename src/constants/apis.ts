@@ -10,4 +10,5 @@ export const API_ENDPOINT = {
         GET: "/profile",
     },
     MANAGEMENT_SCREEN: "/size-screen",
+    MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
 };

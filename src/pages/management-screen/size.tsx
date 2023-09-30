@@ -50,8 +50,8 @@ const columns: ColumnsType<ISizeScreen> = [
                         children: "Bạn có muốn xóa thông tin này?",
                         idUpdate: record._id,
                     }}
-                    api={API_ENDPOINT.MANAGEMENT_SCREEN}
-                    keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_SCREEN}
+                    api={API_ENDPOINT.MANAGEMENT_SIZE_SCREEN}
+                    keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_SIZE_SCREEN}
                 />
             );
         },
@@ -63,12 +63,12 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý kích cỡ màn hình"
-                api={API_ENDPOINT.MANAGEMENT_SCREEN}
-                keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SCREEN}
+                api={API_ENDPOINT.MANAGEMENT_SIZE_SCREEN}
+                keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SIZE_SCREEN}
                 columns={columns}
                 create={{
                     button: { children: "Tạo mới", icon: <PlusOutlined /> },
-                    req: { method: "post", api: API_ENDPOINT.MANAGEMENT_SCREEN },
+                    req: { method: "post", api: API_ENDPOINT.MANAGEMENT_SIZE_SCREEN },
                     title: "Tạo mới kích cỡ màn hình",
                     fields: [itemForm],
                 }}

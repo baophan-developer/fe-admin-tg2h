@@ -9,7 +9,8 @@ export const API_ENDPOINT = {
     PROFILE: {
         GET: "/profile",
     },
-    MANAGEMENT_SCREEN: "/size-screen",
+    MANAGEMENT_SIZE_SCREEN: "/size-screen",
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
-    MANAGEMENT_ROM: "/capacity-rom",
+    MANAGEMENT_TYPE_ROM: "/type-rom",
+    MANAGEMENT_CAPACITY_ROM: "/capacity-rom",
 };

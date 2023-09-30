@@ -10,8 +10,8 @@ import PUBSUB_SUBSCRIBE_NAME from "@/constants/pubsub";
 interface ISizeScreen {
     _id: string;
     size: number;
-    createAt: Date;
-    updateAt: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const itemForm: FormItemProps = {
@@ -28,11 +28,11 @@ const itemForm: FormItemProps = {
 
 const columns: ColumnsType<ISizeScreen> = [
     { title: "STT", dataIndex: "key" },
-    { title: "Name", dataIndex: "size" },
-    { title: "Create at", dataIndex: "createdAt" },
-    { title: "Update at", dataIndex: "updatedAt" },
+    { title: "Kích cỡ", dataIndex: "size" },
+    { title: "Ngày tạo", dataIndex: "createdAt" },
+    { title: "Ngày cập nhật", dataIndex: "updatedAt" },
     {
-        title: "Action",
+        title: "Hành vi",
         width: "200px",
         render: (_, record) => {
             return (

@@ -8,11 +8,6 @@ import { ColumnActions } from "@/components/molecules";
 import { API_ENDPOINT } from "@/constants/apis";
 import PUBSUB_SUBSCRIBE_NAME from "@/constants/pubsub";
 
-const ActionStyled = styled.div`
-    display: flex;
-    gap: 0 10px;
-`;
-
 interface ISizeScreen {
     _id: string;
     size: number;

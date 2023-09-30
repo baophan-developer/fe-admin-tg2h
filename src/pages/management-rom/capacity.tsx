@@ -51,8 +51,8 @@ const columns: ColumnsType<ICapacityRom> = [
                         children: "Bạn có muốn xóa dung lượng rom",
                         idUpdate: record._id,
                     }}
-                    api={API_ENDPOINT.MANAGEMENT_ROM}
-                    keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_ROM}
+                    api={API_ENDPOINT.MANAGEMENT_CAPACITY_ROM}
+                    keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_CAPACITY_ROM}
                 />
             );
         },
@@ -63,12 +63,12 @@ export default function ManagementCapacityRom() {
     return (
         <TableView
             title="Quản lý dung lượng ROM"
-            api={API_ENDPOINT.MANAGEMENT_ROM}
-            keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_ROM}
+            api={API_ENDPOINT.MANAGEMENT_CAPACITY_ROM}
+            keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CAPACITY_ROM}
             columns={columns}
             create={{
                 button: { children: "Tạo mới", icon: <PlusOutlined /> },
-                req: { method: "post", api: API_ENDPOINT.MANAGEMENT_ROM },
+                req: { method: "post", api: API_ENDPOINT.MANAGEMENT_CAPACITY_ROM },
                 title: "Tạo mới dung lượng ROM",
                 fields: [itemForm],
             }}

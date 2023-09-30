@@ -11,4 +11,5 @@ export const API_ENDPOINT = {
     },
     MANAGEMENT_SCREEN: "/size-screen",
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
+    MANAGEMENT_ROM: "/capacity-rom",
 };

@@ -2,9 +2,9 @@ import FromCustom from "@/components/templates/FormCustom";
 import request, { TRequest } from "@/services/request";
 import { Button, ButtonProps, Form, FormItemProps, Modal, message } from "antd";
 import { isEqual } from "lodash";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-type TProps = {
+export type TPropsButtonFormModel = {
     title: string;
     button: ButtonProps;
     req: { api: string; method: TRequest };
@@ -24,7 +24,7 @@ export default function ButtonFormModel({
     keyPubsub,
     data,
     fields = [],
-}: TProps) {
+}: TPropsButtonFormModel) {
     const [form] = Form.useForm();
     const [open, setOpen] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -53,6 +53,10 @@ export default function ButtonFormModel({
         setLoading(false);
         setOpen(false);
     };
+
+    useEffect(() => {
+        form.setFieldsValue(data?.initialValueForm);
+    }, [open]);
 
     return (
         <div>

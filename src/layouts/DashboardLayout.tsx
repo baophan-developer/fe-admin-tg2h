@@ -72,7 +72,7 @@ const ButtonStyled = styled(Button)`
 
 const ContentStyled = styled(Content)`
     margin: 24px 16px;
-    padding: 24px;
+    padding: 0 24px;
     min-height: 100vh;
     background: #fff;
 `;

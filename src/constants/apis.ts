@@ -9,4 +9,5 @@ export const API_ENDPOINT = {
     PROFILE: {
         GET: "/profile",
     },
+    MANAGEMENT_SCREEN: "/size-screen",
 };

@@ -7,6 +7,7 @@ const PUBSUB_SUBSCRIBE_NAME = {
     GET_TYPE_RAM: "get_type_ram",
     GET_CAPACITY_RAM: "get_capacity_ram",
     GET_GPU: "get_gpu",
+    GET_CPU: "get_cpu",
 };
 
 export default PUBSUB_SUBSCRIBE_NAME;

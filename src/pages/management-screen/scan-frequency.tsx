@@ -18,7 +18,7 @@ const itemForm: FormItemProps = {
     name: "scanFrequency",
     label: "Tần số quét",
     rules: [{ required: true, message: "Thông tin là bắt buộc." }],
-    children: <Input placeholder="Nhập thông tin tần số quét" />,
+    children: <Input placeholder="Nhập tần số quét" />,
 };
 
 const columns: ColumnsType<IScanFrequencyScreen> = [
@@ -61,8 +61,8 @@ export default function ManagementScanFrequencyScreen() {
             api={API_ENDPOINT.MANAGEMENT_SCAN_FREQUENCY_SCREEN}
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SCAN_FREQUENCY}
             create={{
-                title: "Tạo mới tần số quét màn hình",
-                button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                title: "Thêm mới tần số quét màn hình",
+                button: { children: "Thêm mới", icon: <PlusOutlined /> },
                 req: {
                     method: "post",
                     api: API_ENDPOINT.MANAGEMENT_SCAN_FREQUENCY_SCREEN,

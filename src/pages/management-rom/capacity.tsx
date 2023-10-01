@@ -16,9 +16,9 @@ interface ICapacityRom {
 
 const itemForm: FormItemProps = {
     name: "capacity",
-    label: "Dung lượng",
+    label: "Dung lượng ROM",
     rules: [{ required: true, message: "Thông tin này là bắt buộc." }],
-    children: <Input placeholder="Nhập dung lượng." />,
+    children: <Input placeholder="Nhập dung lượng ROM." />,
 };
 
 const columns: ColumnsType<ICapacityRom> = [
@@ -27,7 +27,7 @@ const columns: ColumnsType<ICapacityRom> = [
         dataIndex: "key",
     },
     {
-        title: "Dung lượng",
+        title: "Dung lượng ROM",
         dataIndex: "capacity",
     },
     { title: "Ngày tạo", dataIndex: "createdAt" },
@@ -47,8 +47,8 @@ const columns: ColumnsType<ICapacityRom> = [
                         title: "Cập nhật dung lượng ROM",
                     }}
                     deleteAction={{
-                        title: "Xóa dung lượng rom",
-                        children: "Bạn có muốn xóa dung lượng rom",
+                        title: "Xóa dung lượng ROM",
+                        children: "Bạn có muốn xóa dung lượng ROM?",
                         idUpdate: record._id,
                     }}
                     api={API_ENDPOINT.MANAGEMENT_CAPACITY_ROM}
@@ -67,9 +67,9 @@ export default function ManagementCapacityRom() {
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CAPACITY_ROM}
             columns={columns}
             create={{
-                button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                button: { children: "Thêm mới", icon: <PlusOutlined /> },
                 req: { method: "post", api: API_ENDPOINT.MANAGEMENT_CAPACITY_ROM },
-                title: "Tạo mới dung lượng ROM",
+                title: "Thêm mới dung lượng ROM",
                 fields: [itemForm],
             }}
         />

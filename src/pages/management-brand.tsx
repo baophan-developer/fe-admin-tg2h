@@ -47,7 +47,7 @@ const columns: ColumnsType<IBrand> = [
                     }}
                     deleteAction={{
                         title: "Xóa thông tin thương hiệu",
-                        children: "Bạn có muốn xóa thông tin thương hiệu này?",
+                        children: "Bạn có muốn xóa thương hiệu này?",
                         idUpdate: record._id,
                     }}
                     api={API_ENDPOINT.MANAGEMENT_BRAND}
@@ -67,9 +67,9 @@ export default function ManagementSizeScreen() {
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_BRAND}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_BRAND },
-                    title: "Tạo mới thương hiệu",
+                    title: "Thêm mới thương hiệu",
                     fields: [itemForm],
                 }}
             />

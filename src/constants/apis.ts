@@ -17,4 +17,5 @@ export const API_ENDPOINT = {
     MANAGEMENT_CAPACITY_RAM: "/capacity-ram",
     MANAGEMENT_GPU: "/gpu",
     MANAGEMENT_CPU: "/cpu",
+    MANAGEMENT_OS: "/os",
 };

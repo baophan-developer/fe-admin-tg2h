@@ -13,4 +13,6 @@ export const API_ENDPOINT = {
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
     MANAGEMENT_TYPE_ROM: "/type-rom",
     MANAGEMENT_CAPACITY_ROM: "/capacity-rom",
+    MANAGEMENT_TYPE_RAM: "/type-ram",
+    MANAGEMENT_CAPACITY_RAM: "/capacity-ram",
 };

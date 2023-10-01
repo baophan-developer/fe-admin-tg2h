@@ -9,6 +9,7 @@ const PUBSUB_SUBSCRIBE_NAME = {
     GET_GPU: "get_gpu",
     GET_CPU: "get_cpu",
     GET_OS: "get_os",
+    GET_CATEGORY: "/get_category",
 };
 
 export default PUBSUB_SUBSCRIBE_NAME;

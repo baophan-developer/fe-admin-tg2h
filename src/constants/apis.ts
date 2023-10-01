@@ -19,4 +19,5 @@ export const API_ENDPOINT = {
     MANAGEMENT_CPU: "/cpu",
     MANAGEMENT_OS: "/os",
     MANAGEMENT_CATEGORY: "/category",
+    MANAGEMENT_BRAND: "/brand",
 };

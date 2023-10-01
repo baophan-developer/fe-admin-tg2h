@@ -16,14 +16,14 @@ interface ICategory {
 
 const itemForm: FormItemProps = {
     name: "name",
-    label: "Tên nhu cầu người dùng",
+    label: "Nhu cầu người dùng",
     rules: [
         {
             required: true,
             message: "Thông tin này là bắt buộc.",
         },
     ],
-    children: <Input placeholder="Nhập tên nhu cầu người dùng." />,
+    children: <Input placeholder="Nhập nhu cầu người dùng." />,
 };
 
 const columns: ColumnsType<ICategory> = [
@@ -39,15 +39,15 @@ const columns: ColumnsType<ICategory> = [
                 <ColumnActions
                     updateAction={{
                         fields: [itemForm],
-                        title: "Cập nhật tên nhu cầu người dùng.",
+                        title: "Cập nhật nhu cầu người dùng.",
                         data: {
                             id: record._id,
                             initialValueForm: { name: record.name },
                         },
                     }}
                     deleteAction={{
-                        title: "Xóa thông tin nhu cầu người dùng",
-                        children: "Bạn có muốn xóa thông tin nhu cầu người dùng này?",
+                        title: "Xóa nhu cầu người dùng",
+                        children: "Bạn có muốn xóa nhu cầu người dùng?",
                         idUpdate: record._id,
                     }}
                     api={API_ENDPOINT.MANAGEMENT_CATEGORY}
@@ -62,14 +62,14 @@ export default function ManagementSizeScreen() {
     return (
         <div>
             <TableView
-                title="Quản lý thông tin hệ điều hành"
+                title="Quản lý nhu cầu người dùng"
                 api={API_ENDPOINT.MANAGEMENT_CATEGORY}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CATEGORY}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_CATEGORY },
-                    title: "Tạo mới hệ điều hành",
+                    title: "Thêm mới hệ điều hành",
                     fields: [itemForm],
                 }}
             />

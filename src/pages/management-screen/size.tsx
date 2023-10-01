@@ -39,7 +39,7 @@ const columns: ColumnsType<ISizeScreen> = [
                 <ColumnActions
                     updateAction={{
                         fields: [itemForm],
-                        title: "Cập nhật thông tin kích cỡ màn hình",
+                        title: "Cập nhật kích cỡ màn hình",
                         data: {
                             id: record._id,
                             initialValueForm: { size: record.size },
@@ -67,9 +67,9 @@ export default function ManagementSizeScreen() {
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SIZE_SCREEN}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_SIZE_SCREEN },
-                    title: "Tạo mới kích cỡ màn hình",
+                    title: "Thêm mới kích cỡ màn hình",
                     fields: [itemForm],
                 }}
             />

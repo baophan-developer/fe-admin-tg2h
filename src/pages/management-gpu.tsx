@@ -39,14 +39,14 @@ const columns: ColumnsType<IGpu> = [
                 <ColumnActions
                     updateAction={{
                         fields: [itemForm],
-                        title: "Cập nhật thông tin kích cỡ màn hình",
+                        title: "Cập nhật thông tin GPU",
                         data: {
                             id: record._id,
                             initialValueForm: { name: record.name },
                         },
                     }}
                     deleteAction={{
-                        title: "Xóa gpu",
+                        title: "Xóa GPU",
                         children: "Bạn có muốn xóa thông tin GPU này?",
                         idUpdate: record._id,
                     }}
@@ -67,9 +67,9 @@ export default function ManagementSizeScreen() {
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_GPU}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_GPU },
-                    title: "Tạo mới GPU",
+                    title: "Thêm mới GPU",
                     fields: [itemForm],
                 }}
             />

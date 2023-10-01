@@ -16,9 +16,9 @@ interface ITypeRam {
 
 const itemForm: FormItemProps = {
     name: "name",
-    label: "Tên loại RAM",
+    label: "Tên công nghệ RAM",
     rules: [{ required: true, message: "Thông tin này là bắt buộc." }],
-    children: <Input placeholder="Nhập tên loại RAM." />,
+    children: <Input placeholder="Nhập tên công nghệ RAM." />,
 };
 
 const columns: ColumnsType<ITypeRam> = [
@@ -27,7 +27,7 @@ const columns: ColumnsType<ITypeRam> = [
         dataIndex: "key",
     },
     {
-        title: "Tên loại RAM",
+        title: "Tên công nghệ RAM",
         dataIndex: "name",
     },
     { title: "Ngày tạo", dataIndex: "createdAt" },
@@ -44,11 +44,11 @@ const columns: ColumnsType<ITypeRam> = [
                             initialValueForm: { name: record.name },
                         },
                         fields: [itemForm],
-                        title: "Cập nhật loại RAM",
+                        title: "Cập nhật công nghệ RAM",
                     }}
                     deleteAction={{
-                        title: "Xóa loại rom",
-                        children: "Bạn có muốn xóa loại RAM",
+                        title: "Xóa công nghệ RAM",
+                        children: "Bạn có muốn xóa công nghệ RAM?",
                         idUpdate: record._id,
                     }}
                     api={API_ENDPOINT.MANAGEMENT_TYPE_RAM}
@@ -62,14 +62,14 @@ const columns: ColumnsType<ITypeRam> = [
 export default function ManagementCapacityRom() {
     return (
         <TableView
-            title="Quản lý loại RAM"
+            title="Quản lý công nghệ RAM"
             api={API_ENDPOINT.MANAGEMENT_TYPE_RAM}
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_TYPE_RAM}
             columns={columns}
             create={{
-                button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                button: { children: "Thêm mới", icon: <PlusOutlined /> },
                 req: { method: "post", api: API_ENDPOINT.MANAGEMENT_TYPE_RAM },
-                title: "Tạo mới loại ROM",
+                title: "Thêm mới công nghệ RAM",
                 fields: [itemForm],
             }}
         />

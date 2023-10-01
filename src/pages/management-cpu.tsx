@@ -62,14 +62,14 @@ export default function ManagementSizeScreen() {
     return (
         <div>
             <TableView
-                title="Quản lý GPU"
+                title="Quản lý CPU"
                 api={API_ENDPOINT.MANAGEMENT_CPU}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CPU}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_CPU },
-                    title: "Tạo mới CPU",
+                    title: "Thêm mới CPU",
                     fields: [itemForm],
                 }}
             />

@@ -44,11 +44,11 @@ const columns: ColumnsType<ICapacityRam> = [
                             initialValueForm: { capacity: record.capacity },
                         },
                         fields: [itemForm],
-                        title: "Cập nhật loại RAM",
+                        title: "Cập nhật dung lượng RAM",
                     }}
                     deleteAction={{
-                        title: "Xóa loại rom",
-                        children: "Bạn có muốn xóa loại RAM",
+                        title: "Xóa dung lượng RAM",
+                        children: "Bạn có muốn xóa dung lượng RAM?",
                         idUpdate: record._id,
                     }}
                     api={API_ENDPOINT.MANAGEMENT_CAPACITY_RAM}
@@ -67,9 +67,9 @@ export default function ManagementCapacityRom() {
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CAPACITY_RAM}
             columns={columns}
             create={{
-                button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                button: { children: "Thêm mới", icon: <PlusOutlined /> },
                 req: { method: "post", api: API_ENDPOINT.MANAGEMENT_CAPACITY_RAM },
-                title: "Tạo mới loại ROM",
+                title: "Thêm mới dung lượng RAM",
                 fields: [itemForm],
             }}
         />

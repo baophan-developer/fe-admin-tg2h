@@ -67,9 +67,9 @@ export default function ManagementSizeScreen() {
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_OS}
                 columns={columns}
                 create={{
-                    button: { children: "Tạo mới", icon: <PlusOutlined /> },
+                    button: { children: "Thêm mới", icon: <PlusOutlined /> },
                     req: { method: "post", api: API_ENDPOINT.MANAGEMENT_OS },
-                    title: "Tạo mới hệ điều hành",
+                    title: "Thêm mới hệ điều hành",
                     fields: [itemForm],
                 }}
             />

@@ -15,4 +15,5 @@ export const API_ENDPOINT = {
     MANAGEMENT_CAPACITY_ROM: "/capacity-rom",
     MANAGEMENT_TYPE_RAM: "/type-ram",
     MANAGEMENT_CAPACITY_RAM: "/capacity-ram",
+    MANAGEMENT_GPU: "/gpu",
 };

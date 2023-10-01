@@ -35,6 +35,7 @@ const menuItems: MenuProps["items"] = [
         [
             getItem("Kích cỡ", ROUTERS.MANAGEMENT.SCREEN.SIZE),
             getItem("Tần số quét", ROUTERS.MANAGEMENT.SCREEN.SCAN_FREQUENCY),
+            getItem("Độ phân giải", ROUTERS.MANAGEMENT.SCREEN.RESOLUTION),
         ]
     ),
     getItem("Quản lý RAM", ROUTERS.MANAGEMENT.RAM.INDEX, <CgSmartphoneRam />, [

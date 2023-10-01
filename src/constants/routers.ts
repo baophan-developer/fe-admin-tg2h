@@ -13,6 +13,7 @@ const ROUTERS = {
             INDEX: "/management-screen",
             SIZE: "/management-screen/size",
             SCAN_FREQUENCY: "/management-screen/scan-frequency",
+            RESOLUTION: "/management-screen/resolution",
         },
         RAM: {
             INDEX: "/management-ram",

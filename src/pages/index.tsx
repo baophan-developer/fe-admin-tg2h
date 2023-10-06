@@ -1,17 +1,13 @@
 import React from "react";
-import { TableView } from "@/components/templates";
+import Link from "next/link";
+import { Avatar, Image, Input } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { IProduct } from "@/interfaces";
+import { TableView } from "@/components/templates";
+import { PendingStyled } from "@/components/atoms";
+import { ButtonFormModel, ButtonModel } from "@/components/molecules";
 import { API_ENDPOINT } from "@/constants/apis";
 import PUBSUB_SUBSCRIBE_NAME from "@/constants/pubsub";
-import styled from "styled-components";
-import { Avatar, Image, Input } from "antd";
-import { ButtonFormModel, ButtonModel } from "@/components/molecules";
-import Link from "next/link";
-
-const PendingStyled = styled.div<{ $status?: boolean }>`
-    color: ${(props) => (props.$status ? "#7cb305" : "#d4380d")};
-`;
 
 const columns: ColumnsType<IProduct> = [
     {

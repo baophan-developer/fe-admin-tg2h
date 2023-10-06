@@ -12,6 +12,7 @@ import PUBSUB_SUBSCRIBE_NAME from "@/constants/pubsub";
 const columns: ColumnsType<IProduct> = [
     {
         title: "STT",
+        width: 60,
         dataIndex: "key",
     },
     {
@@ -24,6 +25,8 @@ const columns: ColumnsType<IProduct> = [
     },
     {
         title: "Tên sản phẩm",
+        sorter: true,
+        ellipsis: true,
         render: (_, record) => (
             <Link style={{ color: "black" }} href={`/${record._id}`}>
                 {record.name}
@@ -32,19 +35,21 @@ const columns: ColumnsType<IProduct> = [
     },
     {
         title: "Giá thành",
+        sorter: true,
         render: (_, record) => (
             <span>{record.price.toLocaleString("vi", { currency: "VND" })} vnd</span>
         ),
     },
     {
         title: "Mô tả sản phẩm",
+        ellipsis: true,
         dataIndex: "desc",
     },
     {
         title: "Hình ảnh sản phẩm",
         render: (_, record) => (
             <div>
-                {record.images.map((item, index) => (
+                {record.images.slice(0, 2).map((item, index) => (
                     <Image key={index} src={item} width={65} loading="eager" />
                 ))}
             </div>
@@ -52,10 +57,13 @@ const columns: ColumnsType<IProduct> = [
     },
     {
         title: "Độ mới",
+        sorter: true,
         render: (_, record) => <div>{record.newness} %</div>,
     },
     {
         title: "Trạng thái",
+        sorter: true,
+        width: 150,
         render: (_, record) => (
             <PendingStyled $status={record.approve}>
                 {record.approve ? "Đã duyệt" : "Đang chờ duyệt"}
@@ -64,6 +72,7 @@ const columns: ColumnsType<IProduct> = [
     },
     {
         title: "Hành vi",
+        width: 160,
         render: (_, record) => {
             return (
                 <div style={{ display: "flex", gap: "10px" }}>
@@ -118,9 +127,14 @@ export default function Home() {
             <TableView
                 title="Quản lý sản phẩm"
                 columns={columns}
-                api={API_ENDPOINT.PRODUCT.GET}
-                method="post"
+                getApi={{ method: "post", api: API_ENDPOINT.PRODUCT.GET }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
+                attributeQuery={[
+                    { title: "Tên sản phẩm", value: "name" },
+                    { title: "Giá thành", value: "price" },
+                    { title: "Độ mới", value: "newness" },
+                    { title: "Trạng thái", value: "approve" },
+                ]}
             />
         </div>
     );

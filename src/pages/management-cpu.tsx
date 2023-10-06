@@ -6,6 +6,7 @@ import TableView from "@/components/templates/TableView";
 import { ColumnActions } from "@/components/molecules";
 import { API_ENDPOINT } from "@/constants/apis";
 import PUBSUB_SUBSCRIBE_NAME from "@/constants/pubsub";
+import { method } from "lodash";
 
 interface IGpu {
     _id: string;
@@ -63,7 +64,7 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý CPU"
-                api={API_ENDPOINT.MANAGEMENT_CPU}
+                getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_CPU }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CPU}
                 columns={columns}
                 create={{

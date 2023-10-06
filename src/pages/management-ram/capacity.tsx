@@ -63,7 +63,7 @@ export default function ManagementCapacityRom() {
     return (
         <TableView
             title="Quản lý dung lượng RAM"
-            api={API_ENDPOINT.MANAGEMENT_CAPACITY_RAM}
+            getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_CAPACITY_RAM }}
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_CAPACITY_RAM}
             columns={columns}
             create={{

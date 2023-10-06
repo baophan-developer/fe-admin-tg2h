@@ -63,7 +63,7 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý kích cỡ màn hình"
-                api={API_ENDPOINT.MANAGEMENT_SIZE_SCREEN}
+                getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_SIZE_SCREEN }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SIZE_SCREEN}
                 columns={columns}
                 create={{

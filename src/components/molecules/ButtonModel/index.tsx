@@ -6,7 +6,7 @@ import { Button, ButtonProps, Modal, message } from "antd";
 type TProps = {
     title?: React.ReactNode;
     button?: ButtonProps;
-    req?: { method: TRequest; api: string };
+    req?: { method: TRequest; api: string; id?: string | number };
     children?: React.ReactNode;
     keyPubsub?: string;
 };
@@ -19,7 +19,7 @@ export default function ButtonModel({ title, button, req, children, keyPubsub }:
         setLoading(true);
         if (!isEmpty(req)) {
             try {
-                const res = await request<any>(req?.method, req?.api);
+                const res = await request<any>(req?.method, req?.api, { id: req.id });
                 keyPubsub && PubSub.publishSync(keyPubsub);
                 message.success(res.data.message);
             } catch (error: any) {

@@ -58,7 +58,7 @@ export default function ManagementScanFrequencyScreen() {
         <TableView
             title="Quản lý tần số quét màn hình"
             columns={columns}
-            api={API_ENDPOINT.MANAGEMENT_SCAN_FREQUENCY_SCREEN}
+            getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_SCAN_FREQUENCY_SCREEN }}
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_SCAN_FREQUENCY}
             create={{
                 title: "Thêm mới tần số quét màn hình",

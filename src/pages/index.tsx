@@ -14,9 +14,12 @@ const columns: ColumnsType<IProduct> = [
         title: "STT",
         width: 60,
         dataIndex: "key",
+        fixed: "left",
     },
     {
         title: "Người yêu cầu",
+        fixed: "left",
+        width: 170,
         render: (_, record) => (
             <div>
                 <Avatar src={record.owner.avatar} /> {record.owner.name}
@@ -47,6 +50,7 @@ const columns: ColumnsType<IProduct> = [
     },
     {
         title: "Hình ảnh sản phẩm",
+        width: 200,
         render: (_, record) => (
             <div>
                 {record.images.slice(0, 2).map((item, index) => (
@@ -73,6 +77,7 @@ const columns: ColumnsType<IProduct> = [
     {
         title: "Hành vi",
         width: 160,
+        fixed: "right",
         render: (_, record) => {
             return (
                 <div style={{ display: "flex", gap: "10px" }}>
@@ -135,6 +140,7 @@ export default function Home() {
                     { title: "Độ mới", value: "newness" },
                     { title: "Trạng thái", value: "approve" },
                 ]}
+                scroll={{ x: 1300 }}
             />
         </div>
     );

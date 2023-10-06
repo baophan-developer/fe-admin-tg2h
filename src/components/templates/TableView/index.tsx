@@ -28,6 +28,7 @@ type TProps = {
     getApi: { method: TRequest; api: string };
     keyPubSub: string;
     attributeQuery?: { title: string; value: string }[];
+    scroll?: { x?: number; y?: number };
     /** create is a object for button form model create new item */
     create?: TPropsButtonFormModel;
 };
@@ -42,6 +43,7 @@ export default function TableView({
     columns,
     getApi,
     attributeQuery,
+    scroll,
     keyPubSub,
     create,
 }: TProps) {
@@ -128,6 +130,7 @@ export default function TableView({
                 pagination={{
                     total: total,
                 }}
+                scroll={scroll}
             />
         </div>
     );

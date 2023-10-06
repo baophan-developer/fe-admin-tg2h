@@ -63,7 +63,7 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý GPU"
-                api={API_ENDPOINT.MANAGEMENT_GPU}
+                getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_GPU }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_GPU}
                 columns={columns}
                 create={{

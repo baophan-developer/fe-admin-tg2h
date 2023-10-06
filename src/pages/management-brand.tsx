@@ -63,12 +63,12 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý thông tin thương hiệu"
-                api={API_ENDPOINT.MANAGEMENT_BRAND}
+                getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_BRAND }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_BRAND}
                 columns={columns}
                 create={{
                     button: { children: "Thêm mới", icon: <PlusOutlined /> },
-                    req: { method: "post", api: API_ENDPOINT.MANAGEMENT_BRAND },
+                    req: { method: "get", api: API_ENDPOINT.MANAGEMENT_BRAND },
                     title: "Thêm mới thương hiệu",
                     fields: [itemForm],
                 }}

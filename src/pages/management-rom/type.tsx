@@ -63,7 +63,7 @@ export default function ManagementCapacityRom() {
     return (
         <TableView
             title="Quản lý công nghệ ROM"
-            api={API_ENDPOINT.MANAGEMENT_TYPE_ROM}
+            getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_TYPE_ROM }}
             keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_TYPE_ROM}
             columns={columns}
             create={{

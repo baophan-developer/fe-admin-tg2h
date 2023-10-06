@@ -63,7 +63,7 @@ export default function ManagementSizeScreen() {
         <div>
             <TableView
                 title="Quản lý thông tin hệ điều hành"
-                api={API_ENDPOINT.MANAGEMENT_OS}
+                getApi={{ method: "get", api: API_ENDPOINT.MANAGEMENT_OS }}
                 keyPubSub={PUBSUB_SUBSCRIBE_NAME.GET_OS}
                 columns={columns}
                 create={{

@@ -107,7 +107,6 @@ export default function TableView({
 
     useEffect(() => {
         getData();
-        console.log(1);
         PubSub.subscribe(keyPubSub, getData);
         return () => {
             PubSub.unsubscribe(keyPubSub);

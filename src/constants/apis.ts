@@ -9,6 +9,11 @@ export const API_ENDPOINT = {
     PROFILE: {
         GET: "/profile",
     },
+    PRODUCT: {
+        GET: "/product",
+        REJECT: "/product/reject",
+        APPROVE: "/product/approve",
+    },
     MANAGEMENT_SIZE_SCREEN: "/size-screen",
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
     MANAGEMENT_RESOLUTION_SCREEN: "/resolution-screen",

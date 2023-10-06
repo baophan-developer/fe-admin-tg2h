@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { Layout, Table } from "antd";
 import { styled } from "styled-components";
-import request from "@/services/request";
+import request, { TRequest } from "@/services/request";
 import { ButtonFormModel } from "@/components/molecules";
 import type { TPropsButtonFormModel } from "@/components/molecules";
+import { isEmpty } from "lodash";
 
 const { Header } = Layout;
 
@@ -25,17 +26,25 @@ type TProps = {
     title: React.ReactNode;
     columns: any;
     api: string;
+    method?: TRequest;
     keyPubSub: string;
     /** create is a object for button form model create new item */
-    create: TPropsButtonFormModel;
+    create?: TPropsButtonFormModel;
 };
 
-export default function TableView({ title, columns, api, keyPubSub, create }: TProps) {
+export default function TableView({
+    title,
+    columns,
+    api,
+    method,
+    keyPubSub,
+    create,
+}: TProps) {
     const [data, setData] = useState([]);
 
     const getData = async () => {
         try {
-            const res = await request<any>("get", api);
+            const res = await request<any>(method || "get", api);
             const dataSource = res.data.list.map((item: any, index: number) => ({
                 key: index + 1,
                 ...item,
@@ -58,7 +67,9 @@ export default function TableView({ title, columns, api, keyPubSub, create }: TP
         <div>
             <HeaderStyled>
                 <h2>{title}</h2>
-                <ButtonFormModel {...create} keyPubsub={keyPubSub} />
+                {!isEmpty(create) && (
+                    <ButtonFormModel {...create} keyPubsub={keyPubSub} />
+                )}
             </HeaderStyled>
             <Table columns={columns} dataSource={data} />
         </div>

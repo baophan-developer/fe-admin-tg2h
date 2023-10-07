@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { TableView } from "@/components/templates";
 import { ColumnsType } from "antd/es/table";
 import { IUser } from "@/interfaces";

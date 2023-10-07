@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { isEmpty } from "lodash";
+import { filter, isEmpty } from "lodash";
 import { Layout, Table, TableProps } from "antd";
 import { styled } from "styled-components";
 import request, { TRequest } from "@/services/request";
@@ -29,11 +29,13 @@ type TProps = {
     keyPubSub: string;
     attributeQuery?: { title: string; value: string }[];
     scroll?: { x?: number; y?: number };
+    filters?: { owner?: string | undefined };
     /** create is a object for button form model create new item */
     create?: TPropsButtonFormModel;
 };
 
 interface IQuery {
+    filters?: any;
     sort?: any;
     pagination: { page: number; limit: number };
 }
@@ -43,6 +45,7 @@ export default function TableView({
     columns,
     getApi,
     attributeQuery,
+    filters,
     scroll,
     keyPubSub,
     create,
@@ -54,6 +57,7 @@ export default function TableView({
             limit: 10,
         },
     });
+
     const [total, setTotal] = useState<number>(10);
 
     const handleTableChange: TableProps<any>["onChange"] = (
@@ -114,6 +118,10 @@ export default function TableView({
             PubSub.unsubscribe(keyPubSub);
         };
     }, [query]);
+
+    useEffect(() => {
+        setQuery((prev) => ({ ...prev, filters: filters }));
+    }, [filters]);
 
     return (
         <div>

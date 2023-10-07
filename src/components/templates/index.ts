@@ -1,5 +1,5 @@
 import PrivateRoutes from "./PrivateRoutes";
-import FromCustom from "./FormCustom";
+import FormCustom from "./FormCustom";
 import TableView from "./TableView";
 
-export { PrivateRoutes, FromCustom, TableView };
+export { PrivateRoutes, FormCustom, TableView };

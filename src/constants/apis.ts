@@ -8,6 +8,8 @@ export const API_ENDPOINT = {
     },
     PROFILE: {
         GET: "/profile",
+        UPDATE_AVATAR: "/profile/update-avatar",
+        UPDATE_PROFILE: "/profile/update-profile",
     },
     PRODUCT: {
         GET: "/product",

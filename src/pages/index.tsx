@@ -101,7 +101,7 @@ const columns: ColumnsType<IProduct> = [
                                 ),
                             },
                         ]}
-                        req={{ method: "post", api: API_ENDPOINT.PRODUCT.REJECT }}
+                        req={{ method: "put", api: API_ENDPOINT.PRODUCT.REJECT }}
                         data={{ id: record._id }}
                         keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
                     />
@@ -114,7 +114,7 @@ const columns: ColumnsType<IProduct> = [
                         title="Duyệt sản phẩm"
                         children="Sau khi sản phẩm được duyệt, nó sẽ được xuất hiện trên hệ thống người dùng."
                         req={{
-                            method: "post",
+                            method: "put",
                             api: API_ENDPOINT.PRODUCT.APPROVE,
                             id: record._id,
                         }}

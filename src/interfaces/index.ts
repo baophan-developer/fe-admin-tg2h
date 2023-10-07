@@ -1,10 +1,12 @@
 export interface IUser {
+    _id: string;
     email: string;
     name: string;
     birthday: Date;
     phone: string;
     gender: boolean;
     avatar: string;
+    address: { address: string }[];
 }
 
 export interface IProduct {

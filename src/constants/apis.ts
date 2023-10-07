@@ -14,6 +14,9 @@ export const API_ENDPOINT = {
         REJECT: "/product/reject",
         APPROVE: "/product/approve",
     },
+    USER: {
+        GET: "/user",
+    },
     MANAGEMENT_SIZE_SCREEN: "/size-screen",
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
     MANAGEMENT_RESOLUTION_SCREEN: "/resolution-screen",

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Carousel, Descriptions, Image, Layout } from "antd";
+import { Carousel, Descriptions, Image, Layout } from "antd";
 import { styled } from "styled-components";
 import { useRouter } from "next/router";
 import request from "@/services/request";
@@ -10,10 +10,14 @@ import { PendingStyled } from "@/components/atoms";
 
 const { Header } = Layout;
 
+const MainStyled = styled.div`
+    display: grid;
+    place-items: center;
+`;
+
 const HeaderStyled = styled(Header)`
     background-color: white;
     color: black;
-    padding: 0px;
 
     & h2 {
         font-weight: 400;
@@ -57,10 +61,8 @@ export default function ProductDetail() {
         getProduct(id as string);
     }, [id]);
 
-    const handleCarousel = () => {};
-
     return (
-        <div>
+        <MainStyled>
             <HeaderStyled>
                 <h2>Thông tin chi tiết sản phẩm</h2>
             </HeaderStyled>
@@ -247,6 +249,6 @@ export default function ProductDetail() {
                     />
                 </InfoStyled>
             </ContainerStyled>
-        </div>
+        </MainStyled>
     );
 }

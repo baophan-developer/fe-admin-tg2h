@@ -17,6 +17,7 @@ const columnsProducts: ColumnsType<IProduct> = [
     {
         title: "Người yêu cầu",
         fixed: "left",
+        ellipsis: true,
         width: 170,
         render: (_, record) => (
             <div>
@@ -33,7 +34,6 @@ const columnsProducts: ColumnsType<IProduct> = [
                 {record.name}
             </Link>
         ),
-        fixed: "left",
     },
     {
         title: "Giá thành",
@@ -65,11 +65,27 @@ const columnsProducts: ColumnsType<IProduct> = [
     },
     {
         title: "Trạng thái",
+        fixed: "right",
         sorter: true,
         width: 150,
         render: (_, record) => (
             <PendingStyled $status={record.approve}>
                 {record.approve ? "Đã duyệt" : "Đang chờ duyệt"}
+            </PendingStyled>
+        ),
+    },
+    {
+        title: "Rao bán",
+        fixed: "right",
+        sorter: true,
+        width: 150,
+        render: (_, record) => (
+            <PendingStyled $status={record.status}>
+                {record.status
+                    ? "Đang rao bán"
+                    : record.approve
+                    ? "Ngừng bán"
+                    : "Đang chờ duyệt"}
             </PendingStyled>
         ),
     },

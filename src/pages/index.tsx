@@ -17,8 +17,9 @@ export default function Home() {
                     { title: "Giá thành", value: "price" },
                     { title: "Độ mới", value: "newness" },
                     { title: "Trạng thái", value: "approve" },
+                    { title: "Rao bán", value: "status" },
                 ]}
-                scroll={{ x: 1300 }}
+                scroll={{ x: 1500 }}
             />
         </div>
     );

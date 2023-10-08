@@ -132,6 +132,7 @@ export default function TableView({
                 )}
             </HeaderStyled>
             <Table
+                size="small"
                 columns={columns}
                 dataSource={data}
                 onChange={handleTableChange}

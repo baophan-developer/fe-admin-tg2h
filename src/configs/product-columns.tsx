@@ -84,7 +84,7 @@ const columnsProducts: ColumnsType<IProduct> = [
         width: 100,
     },
     {
-        title: "Đánh giá",
+        title: "Xếp hạng",
         dataIndex: "rating",
         width: 100,
     },

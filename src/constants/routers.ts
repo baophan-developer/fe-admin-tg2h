@@ -9,6 +9,7 @@ const ROUTERS = {
         OS: "/management-os",
         BRAND: "/management-brand",
         CATEGORY: "/management-category",
+        ORDER: "/management-orders",
         SCREEN: {
             INDEX: "/management-screen",
             SIZE: "/management-screen/size",

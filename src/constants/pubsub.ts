@@ -14,6 +14,7 @@ const PUBSUB_SUBSCRIBE_NAME = {
     GET_BRAND: "get_brand",
     GET_PRODUCT: "get_product",
     GET_USER: "get_user",
+    GET_ORDER: "get_order",
 };
 
 export default PUBSUB_SUBSCRIBE_NAME;

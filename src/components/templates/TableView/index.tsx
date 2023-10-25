@@ -25,6 +25,7 @@ const HeaderStyled = styled(Header)`
 type TProps = {
     title: React.ReactNode;
     columns: any;
+    expandedRowRender?: any;
     getApi: { method: TRequest; api: string };
     keyPubSub: string;
     attributeQuery?: { title: string; value: string }[];
@@ -43,6 +44,7 @@ interface IQuery {
 export default function TableView({
     title,
     columns,
+    expandedRowRender,
     getApi,
     attributeQuery,
     filters,
@@ -134,6 +136,7 @@ export default function TableView({
             <Table
                 size="small"
                 columns={columns}
+                expandable={{ expandedRowRender }}
                 dataSource={data}
                 onChange={handleTableChange}
                 pagination={{

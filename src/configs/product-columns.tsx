@@ -34,6 +34,7 @@ const columnsProducts: ColumnsType<IProduct> = [
                 {record.name}
             </Link>
         ),
+        width: 150,
     },
     {
         title: "Giá thành",
@@ -41,11 +42,13 @@ const columnsProducts: ColumnsType<IProduct> = [
         render: (_, record) => (
             <span>{record.price.toLocaleString("vi", { currency: "VND" })} vnd</span>
         ),
+        width: 150,
     },
     {
         title: "Mô tả sản phẩm",
         ellipsis: true,
         dataIndex: "desc",
+        width: 200,
     },
     {
         title: "Hình ảnh sản phẩm",
@@ -53,7 +56,13 @@ const columnsProducts: ColumnsType<IProduct> = [
         render: (_, record) => (
             <div>
                 {record.images.slice(0, 2).map((item, index) => (
-                    <Image key={index} src={item} width={65} loading="eager" />
+                    <Image
+                        preview={false}
+                        key={index}
+                        src={item}
+                        width={65}
+                        loading="eager"
+                    />
                 ))}
             </div>
         ),
@@ -62,6 +71,22 @@ const columnsProducts: ColumnsType<IProduct> = [
         title: "Độ mới",
         sorter: true,
         render: (_, record) => <div>{record.newness} %</div>,
+        width: 100,
+    },
+    {
+        title: "Đã bán",
+        dataIndex: "sold",
+        width: 100,
+    },
+    {
+        title: "Đánh giá",
+        dataIndex: "reviews",
+        width: 100,
+    },
+    {
+        title: "Xếp hạng",
+        dataIndex: "rating",
+        width: 100,
     },
     {
         title: "Trạng thái",
@@ -74,6 +99,7 @@ const columnsProducts: ColumnsType<IProduct> = [
             </PendingStyled>
         ),
     },
+
     {
         title: "Rao bán",
         fixed: "right",

@@ -19,6 +19,10 @@ export const API_ENDPOINT = {
     USER: {
         GET: "/user",
     },
+    ORDER: {
+        GET: "/order",
+        CHANGE_SHIPPING: "/order/shipping",
+    },
     MANAGEMENT_SIZE_SCREEN: "/size-screen",
     MANAGEMENT_SCAN_FREQUENCY_SCREEN: "/scan-frequency-screen",
     MANAGEMENT_RESOLUTION_SCREEN: "/resolution-screen",

@@ -9,7 +9,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { MdScreenshotMonitor } from "react-icons/md";
 import { AiOutlineDropbox, AiOutlineWindows } from "react-icons/ai";
-import { BsCpu, BsGpuCard } from "react-icons/bs";
+import { BsCpu, BsFillBoxSeamFill, BsGpuCard } from "react-icons/bs";
 import { SiBrandfolder } from "react-icons/si";
 import { TbCategory } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
@@ -28,6 +28,7 @@ type TProps = {
 const menuItems: MenuProps["items"] = [
     getItem("Quản lý sản phẩm", ROUTERS.HOME, <AiOutlineDropbox />),
     getItem("Quản lý người dùng", ROUTERS.MANAGEMENT.USER, <FaUser />),
+    getItem("Quản lý đơn hàng", ROUTERS.MANAGEMENT.ORDER, <BsFillBoxSeamFill />),
     getItem(
         "Quản lý màn hình",
         ROUTERS.MANAGEMENT.SCREEN.INDEX,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TableColumnsType, Table, Select, message } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { TableView } from "@/components/templates";
@@ -18,6 +18,40 @@ const options = [
     { label: EStatusShipping.DELIVERING, value: EStatusShipping.DELIVERING },
     { label: EStatusShipping.DELIVERED, value: EStatusShipping.DELIVERED },
 ];
+
+const ChangeStatusShipping = ({ record }: { record: IOrder }) => {
+    const [defaultVal, setDefaultVal] = useState<EStatusShipping>();
+
+    const handleUpdateStatusShipping = async (value: string) => {
+        try {
+            const res = await request<any>("post", API_ENDPOINT.ORDER.CHANGE_SHIPPING, {
+                orderId: record._id,
+                shipping: value,
+            });
+            message.success(res.data.message);
+            PubSub.publishSync(PUBSUB_SUBSCRIBE_NAME.GET_ORDER);
+        } catch (error: any) {
+            message.error(error.response.data.message);
+        }
+    };
+
+    useEffect(() => {
+        setDefaultVal(record.statusShipping);
+    }, [record.statusShipping]);
+
+    return (
+        <Select
+            disabled={
+                record.statusShipping === EStatusShipping.DELIVERED ||
+                record.statusOrder === EOrder.CANCEL
+            }
+            style={{ width: "100%" }}
+            value={defaultVal}
+            options={options}
+            onChange={(value) => handleUpdateStatusShipping(value)}
+        />
+    );
+};
 
 const columns: ColumnsType<IOrder> = [
     {
@@ -71,36 +105,7 @@ const columns: ColumnsType<IOrder> = [
     },
     {
         title: "Trạng thái vận chuyển",
-        render: (_, record) => {
-            const handleUpdateStatusShipping = async (value: string) => {
-                try {
-                    const res = await request<any>(
-                        "post",
-                        API_ENDPOINT.ORDER.CHANGE_SHIPPING,
-                        {
-                            orderId: record._id,
-                            shipping: value,
-                        }
-                    );
-                    message.success(res.data.message);
-                } catch (error: any) {
-                    message.error(error.response.data.message);
-                }
-            };
-
-            return (
-                <Select
-                    disabled={
-                        record.statusShipping === EStatusShipping.DELIVERED ||
-                        record.statusOrder === EOrder.CANCEL
-                    }
-                    style={{ width: "100%" }}
-                    defaultValue={record.statusShipping}
-                    options={options}
-                    onChange={(value) => handleUpdateStatusShipping(value)}
-                />
-            );
-        },
+        render: (_, record) => <ChangeStatusShipping record={record} />,
         width: 250,
         fixed: "right",
     },

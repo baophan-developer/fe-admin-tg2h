@@ -87,6 +87,7 @@ const columnsProducts: ColumnsType<IProduct> = [
         title: "Xếp hạng",
         dataIndex: "rating",
         width: 100,
+        render: (_, record) => <>{record.rating.toFixed(2)}/5</>,
     },
     {
         title: "Trạng thái",
@@ -99,7 +100,6 @@ const columnsProducts: ColumnsType<IProduct> = [
             </PendingStyled>
         ),
     },
-
     {
         title: "Rao bán",
         fixed: "right",

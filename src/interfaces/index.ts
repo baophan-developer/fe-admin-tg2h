@@ -46,6 +46,7 @@ export interface IProduct {
     category: { name: string };
     approve: boolean;
     status: boolean;
+    rating: number;
 }
 
 export interface IPayment {

@@ -145,6 +145,7 @@ const columnsProducts: ColumnsType<IProduct> = [
                         req={{ method: "put", api: API_ENDPOINT.PRODUCT.REJECT }}
                         data={{ id: record._id }}
                         keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
+                        createNotification={record}
                     />
                     <ButtonModel
                         button={{
@@ -160,6 +161,7 @@ const columnsProducts: ColumnsType<IProduct> = [
                             id: record._id,
                         }}
                         keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
+                        createNotification={record}
                     />
                 </div>
             );

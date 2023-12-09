@@ -87,6 +87,7 @@ const columnsProducts: ColumnsType<IProduct> = [
         title: "Xếp hạng",
         dataIndex: "rating",
         width: 100,
+        render: (_, record) => <>{record.rating.toFixed(2)}/5</>,
     },
     {
         title: "Trạng thái",
@@ -99,7 +100,6 @@ const columnsProducts: ColumnsType<IProduct> = [
             </PendingStyled>
         ),
     },
-
     {
         title: "Rao bán",
         fixed: "right",
@@ -145,6 +145,7 @@ const columnsProducts: ColumnsType<IProduct> = [
                         req={{ method: "put", api: API_ENDPOINT.PRODUCT.REJECT }}
                         data={{ id: record._id }}
                         keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
+                        createNotification={record}
                     />
                     <ButtonModel
                         button={{
@@ -160,6 +161,7 @@ const columnsProducts: ColumnsType<IProduct> = [
                             id: record._id,
                         }}
                         keyPubsub={PUBSUB_SUBSCRIBE_NAME.GET_PRODUCT}
+                        createNotification={record}
                     />
                 </div>
             );

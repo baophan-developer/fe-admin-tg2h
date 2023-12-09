@@ -1,8 +1,11 @@
 import FromCustom from "@/components/templates/FormCustom";
+import { useSocket } from "@/contexts/SocketContext";
 import request, { TRequest } from "@/services/request";
+import UserAtom from "@/stores/UserStore";
 import { Button, ButtonProps, Form, FormItemProps, Modal, message } from "antd";
 import { isEqual } from "lodash";
 import React, { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 
 export type TPropsButtonFormModel = {
     title: string;
@@ -15,6 +18,7 @@ export type TPropsButtonFormModel = {
         initialValueForm?: any;
     };
     fields?: FormItemProps[];
+    createNotification?: any;
 };
 
 export default function ButtonFormModel({
@@ -24,7 +28,10 @@ export default function ButtonFormModel({
     keyPubsub,
     data,
     fields = [],
+    createNotification,
 }: TPropsButtonFormModel) {
+    const user = useRecoilValue(UserAtom);
+    const socket = useSocket();
     const [form] = Form.useForm();
     const [open, setOpen] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -42,6 +49,14 @@ export default function ButtonFormModel({
                 id: data?.id,
                 ...value,
             });
+
+            if (createNotification)
+                socket.emit("notification", {
+                    title: "Sản phẩm của bạn đã bị từ chối",
+                    message: `Sản phẩm ${createNotification.name} đã bị từ chối bởi ${user.name}`,
+                    userReceive: createNotification.owner._id,
+                });
+
             message.success(res.data.message);
         } catch (error: any) {
             message.error(error.response.data.message);
